@@ -55,14 +55,14 @@ const getCart = computed(() => {
         <!-- ---------------------------------------------- -->
         <!-- Search part -->
         <!-- ---------------------------------------------- -->
-        <Searchbar />
+        <!-- <Searchbar /> -->
 
         <!-- ---------------------------------------------- -->
         <!-- Mega menu -->
         <!-- ---------------------------------------------- -->
-        <div class="hidden-sm-and-down">
+        <!-- <div class="hidden-sm-and-down">
             <Navigations />
-        </div>
+        </div> -->
 
         <v-spacer class="hidden-sm-and-down" />
 
@@ -79,25 +79,25 @@ const getCart = computed(() => {
         <!-- ---------------------------------------------- -->
         <!-- translate -->
         <!-- ---------------------------------------------- -->
-        <div class="hidden-sm-and-down">
+        <!-- <div class="hidden-sm-and-down">
             <LanguageDD />
-        </div>
+        </div> -->
 
         <!-- ---------------------------------------------- -->
         <!-- ShoppingCart -->
         <!-- ---------------------------------------------- -->
-        <v-btn icon class="custom-hover-primary hidden-sm-and-down" size="small" variant="text" color="primary" to="/ecommerce/checkout">
+        <!-- <v-btn icon class="custom-hover-primary hidden-sm-and-down" size="small" variant="text" color="primary" to="/ecommerce/checkout">
             <v-badge color="error" :content="getCart?.length">
                 <Icon icon="solar:cart-large-2-outline" height="22" />
             </v-badge>
-        </v-btn>
+        </v-btn> -->
 
         <!-- ---------------------------------------------- -->
         <!-- Notification -->
         <!-- ---------------------------------------------- -->
-        <div class="hidden-sm-and-down">
+        <!-- <div class="hidden-sm-and-down">
             <NotificationDD />
-        </div>
+        </div> -->
 
         <!-- ---------------------------------------------- -->
         <!-- User Profile -->

@@ -61,7 +61,7 @@ const billerCategory = ref<Biller[]>([]); // Store cities from the API with the 
 
 // Reactive object to hold form data
 const formUserData = ref({
-    city_id: 0,
+    city_id: null as number | null, // Initialize as null and allow number or null
     first_name: '',
     last_name: '',
     middle_name: '',
@@ -149,16 +149,39 @@ const openEditUserDialog = async () => {
 watch(
     () => formUserData.value.country,
     async (newCountry) => {
-        if (newCountry && token) {
+        console.log(userStore.userData!.city.country_id);
+        console.log(newCountry);
+        // Compare newCountry with oldCountry
+        if (newCountry !== userStore.userData!.city.country_id && token) {
             // Fetch cities for the selected country
             try {
                 const fetchedCities = await apiService.getCitiesByCountryId(token, Number(newCountry));
                 cities.value = fetchedCities; // Store fetched cities
+
+                // Set city_id to the first city in the list, if available
+                if (fetchedCities.length > 0) {
+                    formUserData.value.city_id = fetchedCities[0].id;
+                } else {
+                    formUserData.value.city_id = null; // Clear city_id if no cities are available
+                }
+
+                console.log(fetchedCities);
             } catch (error) {
                 console.error('Error fetching cities:', error);
             }
-        } else {
-            cities.value = []; // Clear cities if no country is selected
+        } else if (newCountry == userStore.userData!.city.country_id && token) {
+            // Fetch cities for the selected country
+            console.log('knlknlnlnln');
+            try {
+                const fetchedCities = await apiService.getCitiesByCountryId(token, Number(newCountry));
+                cities.value = fetchedCities; // Store fetched cities
+                formUserData.value.city_id = userStore.userData!.city_id;
+            } catch (error) {
+                console.error('Error fetching cities:', error);
+            }
+        } else  {
+            // Clear cities if no country is selected
+            cities.value = []; 
         }
     }
 );

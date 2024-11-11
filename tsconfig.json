@@ -1,20 +1,22 @@
 {
     "extends": "@vue/tsconfig/tsconfig.web.json",
     "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+    "exclude": ["src/vue.config.js"],
     "compilerOptions": {
-        "preserveValueImports": false,
-        "importsNotUsedAsValues": "remove",
-        "verbatimModuleSyntax": true,
-        "ignoreDeprecations": "5.0",
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./src/*"]
-        },
-        "allowJs": true
+      "preserveValueImports": false,
+      "importsNotUsedAsValues": "remove",
+      "verbatimModuleSyntax": true,
+      "ignoreDeprecations": "5.0",
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      },
+      "allowJs": true
     },
     "references": [
-        {
-            "path": "./tsconfig.vite-config.json"
-        }
+      {
+        "path": "./tsconfig.vite-config.json"
+      }
     ]
-}
+  }
+  
